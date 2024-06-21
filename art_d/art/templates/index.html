@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+<!-- Product Catagories Area Start -->
+<div class="products-catagories-area clearfix">
+    <div class="amado-pro-catagory clearfix">
+
+        
+
+
+
+        <!-- Single Catagory -->
+        {% for art in arts %}
+        <div class="single-products-catagory clearfix">
+            <a href="/art/{{ art.slug }}/">
+
+                {% if art.images.exists %}
+                <img src="{{ art.images.first.image.url }}" alt="">  
+                {% endif %} 
+
+
+                <!-- Hover Content -->
+                <div class="hover-content">
+                    <div class="line"></div>
+                    <p>From ${{ art.price }}</p>
+                    <h4>{{ art.name }}</h4>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+       
+
+        
+
+      
+    </div>
+</div>
+<!-- Product Catagories Area End -->
+
+{% endblock %}
+
